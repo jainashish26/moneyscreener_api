@@ -25,7 +25,7 @@ app.get('/:id', function (req, res) {
          var stockdata = allTextLines[i].split(',');
          if (stockdata.length == headers.length) {
             if (stockdata[0] == req.params.id || stockdata[1] == req.params.id ) {
-              console.log(allTextLines[i]);
+              console.log('Data available for ISIN : ' + stockdata[0] + ' and BSEID: ' +stockdata[1]);
               res.send(allTextLines[i]);
               return;
             }
