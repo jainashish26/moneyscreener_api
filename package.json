@@ -1,0 +1,14 @@
+{
+  "name": "moneyscreener_api",
+  "version": "1.0.0",
+  "description": "Provides stocks data in plain text response to calls made from Chrome Extension or Facebook Messenger Bot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "author": "Ashish Jain",
+  "license": "ISC"
+}
