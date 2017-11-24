@@ -4,7 +4,11 @@
   "description": "Provides stocks data in plain text response to calls made from Chrome Extension or Facebook Messenger Bot",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm install && node app.js"
+  },  
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jainashish26/moneyscreener_api.git"
   },
   "dependencies": {
     "express": "^4.16.2"
