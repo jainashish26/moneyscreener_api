@@ -20,16 +20,22 @@ app.get('/:id', function (req, res) {
      var allTextLines = data.split(/\r\n|\n/);
      var headers = allTextLines[0].split(',');
      var lines = [];
-
+     var flag = false;
      for (var i=1; i<allTextLines.length; i++) {
          var stockdata = allTextLines[i].split(',');
          if (stockdata.length == headers.length) {
             if (stockdata[0] == req.params.id || stockdata[1] == req.params.id ) {
+              flag = true;
               console.log('Data available for ISIN : ' + stockdata[0] + ' and BSEID: ' +stockdata[1]);
               res.send(allTextLines[i]);
               return;
             }
          }
+     }
+     if (flag == false) {
+       console.log('Data not available for ISIN : ' + stockdata[0] + ' and BSEID: ' +stockdata[1]);
+       res.send('Data Unavailable');
+       return;
      }
    });
 });
