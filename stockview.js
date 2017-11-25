@@ -22,7 +22,7 @@ router.get('/stockinfo', function (req, res) {
      var headers = allTextLines[0].split(',');
      var lines = [];
      var flag = false;
-     var fieldnum = 0;
+     var fieldnum = -1;
      for (var i=0; i<headers.length; i++) {
        //console.log(headers[i].toLowerCase() + ' == ' + req.query.field.toLowerCase());
        if (headers[i].toLowerCase() == req.query.field.toLowerCase()) {
@@ -31,7 +31,7 @@ router.get('/stockinfo', function (req, res) {
        }
      }
 
-     if (fieldnum != 0){
+     if (fieldnum != -1){
        for (var i=1; i<allTextLines.length; i++) {
            var stockdata = allTextLines[i].split(',');
            if (stockdata.length == headers.length) {
@@ -64,7 +64,7 @@ router.get('/:id', function (req, res, next) {
      for (var i=1; i<allTextLines.length; i++) {
          var stockdata = allTextLines[i].split(',');
          if (stockdata.length == headers.length) {
-            if (stockdata[0] == req.params.id || stockdata[1] == req.params.id ) {
+            if (stockdata[0] == req.params.id || stockdata[1] == req.params.id || stockdata[2] == req.params.id ) {
               flag = true;
               console.log('Data available for ISIN -> ' + stockdata[0] + ' and BSEID -> ' +stockdata[1]);
               res.send(allTextLines[i]);
