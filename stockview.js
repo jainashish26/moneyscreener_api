@@ -23,6 +23,7 @@ router.get('/stockinfo', function (req, res) {
      var lines = [];
      var flag = false;
      var fieldnum = -1;
+     var jsonResponse = [];
      for (var i=0; i<headers.length; i++) {
        //console.log(headers[i].toLowerCase() + ' == ' + req.query.field.toLowerCase());
        if (headers[i].toLowerCase() == req.query.field.toLowerCase()) {
@@ -38,7 +39,8 @@ router.get('/stockinfo', function (req, res) {
               if (stockdata[0] == req.query.stockid || stockdata[1] == req.query.stockid || stockdata[2] == req.query.stockid) {
                 flag = true;
                 console.log('Data available for ISIN : ' + stockdata[0] + ' and BSEID: ' +stockdata[1]);
-                res.send(stockdata[fieldnum]);
+                jsonResponse.push({"text" : stockdata[fieldnum]});
+                res.send(jsonResponse);
                 break;
               }
            }
