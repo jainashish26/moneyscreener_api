@@ -23,8 +23,9 @@ router.get('/stockinfo', function (req, res) {
      var lines = [];
      var flag = false;
      var fieldnum = 0;
-     for (var i=1; i<headers.length; i++) {
-       if (headers[i] == req.query.field) {
+     for (var i=0; i<headers.length; i++) {
+       //console.log(headers[i].toLowerCase() + ' == ' + req.query.field.toLowerCase());
+       if (headers[i].toLowerCase() == req.query.field.toLowerCase()) {
          fieldnum = i;
          break;
        }
