@@ -49,7 +49,8 @@ router.get('/stockinfo', function (req, res) {
 
      if (flag == false) {
        console.log('Data not available for ID : ' + req.query.stockid + ' and field: ' +  req.query.field);
-       res.send('Data Unavailable');
+       jsonResponse.push({"text" : "Data Unavailable."});
+       res.send(jsonResponse);
      }
    });
 });
